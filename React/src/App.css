@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+	/* CSS HEX */
+	--white: #ffffffff;
+	--radical-red: #ff3864ff;
+	--blue-gray: #6c91c2ff;
+	--sliver: #C2C2C2;
+}
+
+body, div, h1, h2, h3, h4, h5, h6, p, a, ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	color: var(--white);
+	background: var(--radical-red);
+	background: linear-gradient(101deg, var(--radical-red) 0%, var(--blue-gray) 100%);
+	font-family: "Montserrat", sans-serif;
+}
+
+body, #root, .App, #container, #home, #login, #register, #landing {
+	width: 100vw;
+	height: 100vh;
+	max-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+#header {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	padding: 1rem 0;
+}
+
+#header > ul {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	list-style: none;
+	gap: 2rem;
+}
+
+a {
+	text-decoration: none;
+	color: var(--white);
+	font-size: 1.5rem;
+}
+
+a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#footer {
+	padding: 1rem;
+}
+
+#homeContainer {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+#landingContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 3rem;
+}
+
+#registerForm, #loginForm {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+	width: 20rem;
+}
+
+.formGroup {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 1rem;
+	justify-content: space-between;
+}
+
+.submitButton, .logoutButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	color: var(--white);
+	background-color: rgba(255, 255, 255, 0);
+	width: 7rem;
+	height: 3rem;
+	border: solid 0.1rem var(--white);
+	border-radius: 1rem;
+}
+
+
+
+.logoutButton:hover, .submitButton:hover {
+	cursor: pointer;
+	background-color: var(--white);
+	color: var(--blue-gray)
+}
+
+#message {
+	text-align: center;
+	max-width: 100%;
+}
+
+.homeLink {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.icon {
+	width: 6rem;
+	height: auto;
+}
+
