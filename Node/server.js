@@ -4,14 +4,16 @@ import mongoose from "mongoose";
 import jsonwebtoken from "jsonwebtoken";
 import bcryptjs from "bcryptjs";
 import user from "./models/user.js";
+import dotenv from "dotenv"; 
 
+dotenv.config();
 const { hash, compare } = bcryptjs;
 const { sign } = jsonwebtoken;
 const User = user;
 
 //Should be in .env
-const TOKEN_KEY = "xIkeHpIseP"
-const MONGODB_CONNECT = "mongodb+srv://login-admin:MWsGB18epMER42ao@cluster0.9q6vz8r.mongodb.net/?retryWrites=true&w=majority"
+// var TOKEN_KEY = "xIkeHpIseP"
+// var MONGODB_CONNECT = "mongodb+srv://login-admin:MWsGB18epMER42ao@cluster0.9q6vz8r.mongodb.net/?retryWrites=true&w=majority"
 
 const app = express();
 app.use(express.json());
@@ -19,7 +21,7 @@ app.use(express.urlencoded());
 app.use(cors());
 
 //Set up mongoose connection
-var mongoDB = MONGODB_CONNECT;
+var mongoDB = process.env.MONGODB_CONNECT;
 mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -52,7 +54,7 @@ app.post("/register", async (req, res) => {
 				})
 			const token = sign(
 				{ user_id: user._id, email },
-				TOKEN_KEY,
+				process.env.TOKEN_KEY,
 			)
 			user.token = token;
 			user.save(err => {
